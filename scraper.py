@@ -13,6 +13,7 @@ root = lxml.html.fromstring(html)
 content = root.cssselect("div#recentgame_quicklinks")
 
 date = datetime.date.today()
+date.strftime('%m/%d/%Y')
 #
 # # Write out to the sqlite database using scraperwiki library
 scraperwiki.sqlite.save(unique_keys=['date'], data={"content": content, "date": date})
