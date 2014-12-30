@@ -10,7 +10,7 @@ html = scraperwiki.scrape("http://steamcommunity.com/id/mikeshenry/")
 #
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-content = root.cssselect("div#recentgame_quicklinks").text_content()
+content = root.cssselect("div#recentgame_quicklinks h2")
 
 date = datetime.date.today()
 #
