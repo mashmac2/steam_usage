@@ -10,12 +10,12 @@ html = scraperwiki.scrape("http://steamcommunity.com/id/mikeshenry/")
 #
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-content = root.cssselect("div#recentgame_quicklinks h2")
+content = root.cssselect("div#recentgame_quicklinks")
 
 date = datetime.date.today()
 #
 # # Write out to the sqlite database using scraperwiki library
-scraperwiki.sqlite.save(unique_keys=date, data={"content": content, "date": date})
+scraperwiki.sqlite.save(unique_keys=['date'], data={"content": content, "date": date})
 #
 # # An arbitrary query against the database
 # scraperwiki.sql.select("* from data where 'name'='peter'")
